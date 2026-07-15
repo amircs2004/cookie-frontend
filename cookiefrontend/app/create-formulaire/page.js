@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { apiCreateFormulaire } from "../../lib/api";
-
+import { useRouter } from "next/navigation";
 export default function UpdateProfilePage() {
-  const cars = [
+   const router = useRouter ()
+    const cars = [
     "renault",
     "dacia",
     "peugeot",
@@ -81,6 +82,11 @@ export default function UpdateProfilePage() {
     try {
       const result = await apiCreateFormulaire(formulaire);
       console.log("Form saved successfully!", result);
+      if (result) {
+         router.push(`/client/${result.data._id}`)
+      }else {
+        alert('error at saving the formulaire')
+      }
     } catch (error) {
       console.error("Error at saving formulaire:", error);
     }

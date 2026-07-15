@@ -19,10 +19,11 @@ export default function AuthPage() {
   });
   const [loading, setLoading] = useState(true);
   //first issues i forgot that async
-  
+
   const retreiveUserData = async () => {
     try {
       const Response = await getUserInfos();
+      console.log("DEBUG: Response from API:", Response);
       if (!Response) {
         console.log("error at fetching user infos");
        // router.push("/auth/log");
@@ -42,7 +43,7 @@ export default function AuthPage() {
     retreiveUserData();
 
     // the empty array ensures that the useEffect runs  only once
-  }, []);
+  }, [router]);
   return (
     <div className="flex min-h-screen bg-gray-50">
       <Sidebar />
