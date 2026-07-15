@@ -42,7 +42,8 @@ const wilayas = [
   "Tlemcen",
   "Tiaret",
   "Tizi Ouzou",
-  "Alger",
+  "Algiers",
+  "Oran" , 
   "Djelfa",
 ];
 

@@ -21,14 +21,17 @@ export default function Login() {
     try {
         
       const loggedUser = await loginUser(userData); 
-      console.log(loggedUser.user.email);
-      console.log(loggedUser.user.password);
-
-      
-      if (loggedUser && loggedUser.user) {
+  
+      console.log(loggedUser.user.id);
+    
+      if (loggedUser && loggedUser.user && loggedUser.user.id) {
         console.log("Login successful!");
-        router.push(`/client/${loggedUser.user._id}`)
+        router.push(`/client/${loggedUser.user.id}`)
+      }else{
+        console.log("missing id");
+        
       }
+
     } catch (error) {
       console.error("Error at logging:", error);
     }
