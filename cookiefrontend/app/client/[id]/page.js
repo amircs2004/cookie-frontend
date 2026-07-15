@@ -23,7 +23,6 @@ export default function AuthPage() {
   const retreiveUserData = async () => {
     try {
       const Response = await getUserInfos();
-      console.log("DEBUG: Response from API:", Response);
       if (!Response) {
         console.log("error at fetching user infos");
        // router.push("/auth/log");
